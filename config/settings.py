@@ -127,13 +127,7 @@ INSTALLED_APPS = [
     "users",
     "configuraciones",
     "dashboard",
-    "comedores",
-    "organizaciones",
-    "provincias",
-    "cdi",
     "ciudadanos",
-    "duplas",
-    "admisiones",
 ]
 
 # Definición del middleware utilizado por el proyecto
@@ -185,7 +179,7 @@ TEMPLATES = [
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": os.getenv("DATABASE_NAME", "sisoc-local"),
+        "NAME": os.getenv("DATABASE_NAME", "sistema-social"),
         "USER": os.getenv("DATABASE_USER", "root"),
         "PASSWORD": os.getenv("DATABASE_PASSWORD", "root1-password2"),
         "HOST": os.getenv("DATABASE_HOST", "mysql"),

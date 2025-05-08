@@ -1,76 +1,147 @@
-/* Contenedor general */
- body {
+/* Reset general */
+* {
+    box-sizing: border-box;
     margin: 0;
-    display: flex;
-    height: 100vh;
-    background-color: #111d35;
-    font-family: 'Montserrat', sans-serif;
+    padding: 0;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+    
+    
+}
+
+/* Layout principal */
 .login-container {
     display: flex;
-    flex: 1;
+    height: 100vh;
+    width: 100vw;
 }
 
-/* Panel izquierdo con la imagen de fondo */
+/* Panel izquierdo con imagen */
 .left-panel {
     flex: 1;
-    background: url("../img/Sign.png") no-repeat center center;
-    background-size: cover;
+    background: url("../img/4k_image.jpg") no-repeat center center / cover;
 }
 
-/* Panel derecho (formulario) */
+/* Panel derecho */
 .right-panel {
-    flex: 0.4;
+    flex: 0.45;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1d274184;
-    border-radius: 20px;
-    margin: 20px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Degradado sutil para suavizar el corte */
+.right-panel::before {
+    content: "";
+    position: absolute;
+    left: -60px;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    background: linear-gradient(to right, rgba(15, 23, 42, 0) 0%, #0f172a 100%);
+    z-index: 0;
 }
 
 /* Caja del formulario */
 .login-box {
-    text-align: center;
-    width: 80%;
-}
-
-h2 {
-    color: #fff;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    font-family: 'Montserrat', sans-serif;
-}
-
-
-
-
-input {
+    background: linear-gradient(145deg, rgba(24, 24, 40, 0.9), rgba(35, 35, 60, 0.7));
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px);
+    padding: 60px 40px;
+    border-radius: 24px;
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+    max-width: 420px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3), 0 0 12px rgba(99, 102, 241, 0.4);
+    text-align: center;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Animación */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+.login-box h2 {
+    color: #ffffff;
+    font-size: 1.9rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    position: relative;
+}
+
+
+
+/* Input container */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Campos de entrada */
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: 0.3s;
 }
 
+.input-group input::placeholder {
+    color: #cbd5e1;
+}
+
+.input-group input:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid #6366f1;
+    outline: none;
+}
+
+/* Botón de login */
 button {
-    background-color: #6b7cff;
+    background: linear-gradient(135deg, #6366f1, #7c3aed);
     border: none;
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
+    padding: 14px;
     width: 100%;
+    border-radius: 14px;
+    font-size: 1rem;
+    color: white;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-top: 20px;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+    transition: all 0.3s ease;
 }
 
+button:hover {
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.8);
+    transform: scale(1.02);
+}
+
+/* Footer */
 footer {
-    color: #fff;
-    font-size: 0.8rem;
-    margin-top: 2rem;
-        font-family: 'Montserrat', sans-serif;
+    margin-top: 40px;
+    color: #a0aec0;
+    font-size: 0.85rem;
+    opacity: 0.85;
 }
